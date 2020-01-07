@@ -13,5 +13,14 @@ namespace Stacks.Test
             stack.Push("foo");
             Assert.AreEqual("foo", stack.Pop());
         }
+        [TestMethod]
+        public void CanPopOffMultipleItmes()
+        {
+            var stack = new MyStack(100);
+            stack.Push("foo");
+            stack.Push("bar");
+            Assert.AreEqual("bar", stack.Pop());
+            Assert.AreEqual("foo", stack.Pop());
+        }
     }
 }
