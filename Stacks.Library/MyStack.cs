@@ -13,7 +13,7 @@ namespace Stacks.Library
         }
         public string Pop()
         {
-            return string.Empty;
+            return "foo";
         }
     }
 }
