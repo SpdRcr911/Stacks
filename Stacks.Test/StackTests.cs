@@ -1,3 +1,4 @@
+using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Stacks.Library;
 
@@ -27,6 +28,27 @@ namespace Stacks.Test
         {
             var stack = new MyStack(100);
             Assert.AreEqual(null, stack.Pop());
+        }
+        [TestMethod]
+        public void ShouldFailWhenPushingNull()
+        {
+            var stack = new MyStack(100);
+            Assert.ThrowsException<ArgumentNullException>(() => 
+                {
+                    stack.Push(null);
+                }
+            );
+        }
+        [TestMethod]
+        public void ShouldFailWhenPushingOverStuffing()
+        {
+            var stack = new MyStack(1);
+            Assert.ThrowsException<Exception>(() => 
+                {
+                    stack.Push("null");
+                    stack.Push("null");
+                }
+            );
         }
     }
 }
