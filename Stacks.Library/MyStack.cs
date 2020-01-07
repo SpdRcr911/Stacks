@@ -16,6 +16,8 @@ namespace Stacks.Library
         }
         public object Pop()
         {
+            if (_currentIndex == 0)
+                return null;
             return _items[--_currentIndex];
         }
     }
