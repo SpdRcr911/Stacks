@@ -3,17 +3,18 @@ namespace Stacks.Library
 {
     public class MyStack
     {
+        private object _item;
         public MyStack(int capacity)
         {
             
         }
-        public void Push(string value)
+        public void Push(object value)
         {
-
+            _item = value;
         }
-        public string Pop()
+        public object Pop()
         {
-            return "foo";
+            return _item;
         }
     }
 }
