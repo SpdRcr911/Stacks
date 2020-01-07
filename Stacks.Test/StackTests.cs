@@ -22,5 +22,11 @@ namespace Stacks.Test
             Assert.AreEqual("bar", stack.Pop());
             Assert.AreEqual("foo", stack.Pop());
         }
+        [TestMethod]
+        public void CanPopFromEmptyStack()
+        {
+            var stack = new MyStack(100);
+            Assert.AreEqual(null, stack.Pop());
+        }
     }
 }
