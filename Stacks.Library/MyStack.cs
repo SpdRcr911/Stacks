@@ -1,4 +1,4 @@
-
+using System;
 namespace Stacks.Library
 {
     public class MyStack
@@ -12,6 +12,11 @@ namespace Stacks.Library
         }
         public void Push(object value)
         {
+            if (_currentIndex == _items.Length)
+                throw new Exception();
+            if (value == null)
+                throw new ArgumentNullException();
+
             _items[_currentIndex++] = value;
         }
         public object Pop()
