@@ -3,25 +3,34 @@ using System.Collections.Generic;
 namespace Stack.Library {
     public class MyStack<T>
     {
+        private IList<T> _items;
         public MyStack()
         {
-            
+            _items = new List<T>();
         }
-        public int Count { get; set; }
+        private MyStack(IList<T> items)
+        {
+            _items = items;
+        }
+        public int Count { get => _items.Count; }
 
         public MyStack<T> Push(T value)
         {
-            return new MyStack<T>();
+            var newItems = new List<T>(_items);
+            newItems.Add(value);
+            return new MyStack<T>(newItems);
         }
 
         public MyStack<T> Pop()
         {
-            return new MyStack<T>();
+            var newItems = new List<T>(_items);
+            newItems.RemoveAt(_items.Count-1);
+            return new MyStack<T>(newItems);
         }
 
         public T Peek()
         {
-            return default(T);
+            return _items[_items.Count - 1];
         }
     }
 }
